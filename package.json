@@ -4,6 +4,7 @@
 	"description": "simply view the image of the image variables when debugging python with opencv",
 	"version": "0.0.5",
 	"publisher": "johnguo",
+	"enableProposedApi": true,
 	"engines": {
 		"vscode": "^1.44.0"
 	},
@@ -18,15 +19,19 @@
 		"onDebugResolve:python"
 	],
 	"main": "./dist/extension.js",
-	"contributes": { 
+	"contributes": {
 		"commands": [
 			{
 				"command": "extension.viewimagepythonopencvdebug",
 				"title": "View Image(Python OpenCV Debug)",
 				"enablement": "inDebugMode"
+			},{
+				"command": "extension.aaaa",
+				"title": "Inset test",
+				"enablement": "inDebugMode"
 			}
 		],
-		"keybindings":[
+		"keybindings": [
 			{
 				"command": "extension.viewimagepythonopencvdebug",
 				"key": "ctrl+alt+q",

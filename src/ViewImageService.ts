@@ -1,17 +1,15 @@
 import * as vscode from 'vscode';
 import { join } from 'path';
 import { mkdirSync, existsSync, readdirSync, unlinkSync } from 'fs';
-import { tmpdir } from 'os';
-
-const WORKING_DIR = 'svifpod';
 
 export default class ViewImageService {
-	private workingdir :string;
+	public workingdir :string;
 
-	public constructor()
+	public constructor(workingdir :string)
 	{
-		let dir = tmpdir();
-		dir = join(dir, WORKING_DIR);
+		this.workingdir = workingdir;
+
+		let dir = this.workingdir;
 		if (existsSync(dir))
 		{
 			let files = readdirSync(dir);
@@ -24,8 +22,6 @@ export default class ViewImageService {
 		{
 			mkdirSync(dir);
 		}
-
-		this.workingdir = dir;
 	}
 
 	public async ViewImage(document: vscode.TextDocument, range: vscode.Range): Promise<string|undefined> {
